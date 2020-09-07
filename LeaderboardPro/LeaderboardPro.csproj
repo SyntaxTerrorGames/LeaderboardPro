@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-LeaderboardPro-C3E4E5F1-2D96-4D86-A178-9A4F866C2631</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20200906220852_InitialCreate.cs" />
+    <Compile Remove="Data\Migrations\20200906220852_InitialCreate.Designer.cs" />
+    <Compile Remove="Data\Migrations\20200906223116_InitialCreate.cs" />
+    <Compile Remove="Data\Migrations\20200906223116_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200906223153_initialcreate.cs" />
+    <Compile Remove="Migrations\20200906223153_initialcreate.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>
+
+</Project>

@@ -2,12 +2,12 @@
 
 namespace LeaderboardPro.Data
 {
-    public class Developer
+    public class Player
     {
-        public string Id { get; set; }
-        public string CompanyName { get; set; }
+        public long Id { get; set; }
         public string AspNetUsersId { get; set; }
 
+        public List<Score> Scores { get; set; }
         public List<Game> Games { get; set; }
     }
 }

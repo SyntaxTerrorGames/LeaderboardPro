@@ -4,14 +4,16 @@ using LeaderboardPro.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace LeaderboardPro.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200908203802_AddedAchievements")]
+    partial class AddedAchievements
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,9 +34,6 @@ namespace LeaderboardPro.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long?>("PlayerId")
-                        .HasColumnType("bigint");
-
                     b.Property<int>("PointsValue")
                         .HasColumnType("int");
 
@@ -44,8 +43,6 @@ namespace LeaderboardPro.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AchievementIconId");
-
-                    b.HasIndex("PlayerId");
 
                     b.ToTable("Achievements");
                 });
@@ -297,9 +294,6 @@ namespace LeaderboardPro.Migrations
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<long>("AchievementScoreTotal")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("AspNetUsersId")
                         .HasColumnType("nvarchar(max)");
 
@@ -515,10 +509,6 @@ namespace LeaderboardPro.Migrations
                         .HasForeignKey("AchievementIconId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("LeaderboardPro.Data.Player", null)
-                        .WithMany("Achievements")
-                        .HasForeignKey("PlayerId");
                 });
 
             modelBuilder.Entity("LeaderboardPro.Data.Address", b =>

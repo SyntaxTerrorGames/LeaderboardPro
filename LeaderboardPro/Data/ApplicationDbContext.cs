@@ -21,5 +21,7 @@ namespace LeaderboardPro.Data
         public virtual DbSet<Player> Players { get; set; }
         public virtual DbSet<GameKey> GameKeys { get; set; }
         public virtual DbSet<Time> Times { get; set; }
+        public virtual DbSet<Achievement> Achievements { get; set; }
+        public virtual DbSet<AchievementIcon> AchievementIcons { get; set; }
     }
 }

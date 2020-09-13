@@ -30,5 +30,13 @@ namespace LeaderboardPro.Data
         public virtual DbSet<GameBan> GameBans { get; set; }
         public virtual DbSet<Friend> Friends { get; set; }
         public virtual DbSet<FriendRequest> FriendRequests { get; set; }
+        public virtual DbSet<Division> Divisions { get; set; }
+        public virtual DbSet<TeamDivision> TeamDivisions { get; set; }
+        public virtual DbSet<League> Leagues { get; set; }
+        public virtual DbSet<TeamLeague> TeamLeagues { get; set; }
+        public virtual DbSet<TeamsInTeamDivision> TeamsInTeamDivisions { get; set; }
+        public virtual DbSet<PlayersInDivision> PlayersInDivisions { get; set; }
+        public virtual DbSet<Tournament> Tournaments { get; set; }
+        public virtual DbSet<TournamentType> TournamentTypes { get; set; }
     }
 }

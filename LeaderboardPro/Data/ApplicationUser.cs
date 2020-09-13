@@ -8,8 +8,5 @@ namespace LeaderboardPro.Data
 {
     public class ApplicationUser : IdentityUser
     {
-        public long AddressId { get; set; }
-
-        public Address Address { get; set; }
     }
 }

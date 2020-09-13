@@ -12,15 +12,91 @@
     <Compile Remove="Data\Migrations\20200906223116_InitialCreate.Designer.cs" />
     <Compile Remove="Migrations\20200906223153_initialcreate.cs" />
     <Compile Remove="Migrations\20200906223153_initialcreate.Designer.cs" />
+    <Compile Remove="Migrations\20200913175922_AddedIntegrityTables.cs" />
+    <Compile Remove="Migrations\20200913175922_AddedIntegrityTables.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="bootstrap" Version="4.5.2" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\css\framework.css" />
+    <None Include="wwwroot\css\style.css" />
+    <None Include="wwwroot\i\close_white%402x.png" />
+    <None Include="wwwroot\i\close_white.png" />
+    <None Include="wwwroot\i\contact_1_bg%402x.jpg" />
+    <None Include="wwwroot\i\contact_1_bg.jpg" />
+    <None Include="wwwroot\i\contact_3_bg%402x.jpg" />
+    <None Include="wwwroot\i\contact_3_bg.jpg" />
+    <None Include="wwwroot\i\contact_4_bg%402x.jpg" />
+    <None Include="wwwroot\i\contact_4_bg.jpg" />
+    <None Include="wwwroot\i\content_17_bg%402x.jpg" />
+    <None Include="wwwroot\i\content_17_bg.jpg" />
+    <None Include="wwwroot\i\content_6_bg%402x.jpg" />
+    <None Include="wwwroot\i\content_6_bg.jpg" />
+    <None Include="wwwroot\i\ecommerce_30_bg_1%402x.jpg" />
+    <None Include="wwwroot\i\ecommerce_30_bg_1.jpg" />
+    <None Include="wwwroot\i\ecommerce_30_bg_2%402x.jpg" />
+    <None Include="wwwroot\i\ecommerce_30_bg_2.jpg" />
+    <None Include="wwwroot\i\fa-angle-down-dark.png" />
+    <None Include="wwwroot\i\fa-angle-down-white.png" />
+    <None Include="wwwroot\i\favicon.png" />
+    <None Include="wwwroot\i\feature_12_bg%402x.jpg" />
+    <None Include="wwwroot\i\feature_12_bg.jpg" />
+    <None Include="wwwroot\i\feature_19_bg%402x.jpg" />
+    <None Include="wwwroot\i\feature_19_bg.jpg" />
+    <None Include="wwwroot\i\feature_21_bg%402x.jpg" />
+    <None Include="wwwroot\i\feature_21_bg.jpg" />
+    <None Include="wwwroot\i\feature_29_bg%402x.jpg" />
+    <None Include="wwwroot\i\feature_29_bg.jpg" />
+    <None Include="wwwroot\i\feature_31_bg%402x.jpg" />
+    <None Include="wwwroot\i\feature_31_bg.jpg" />
+    <None Include="wwwroot\i\feature_36_bg%402x.jpg" />
+    <None Include="wwwroot\i\feature_36_bg.jpg" />
+    <None Include="wwwroot\i\feature_38_bg%402x.jpg" />
+    <None Include="wwwroot\i\feature_38_bg.jpg" />
+    <None Include="wwwroot\i\feature_4_bg%402x.jpg" />
+    <None Include="wwwroot\i\feature_4_bg.jpg" />
+    <None Include="wwwroot\i\feature_6_bg%402x.jpg" />
+    <None Include="wwwroot\i\feature_6_bg.jpg" />
+    <None Include="wwwroot\i\form_1_bg%402x.jpg" />
+    <None Include="wwwroot\i\form_1_bg.jpg" />
+    <None Include="wwwroot\i\form_4_bg%402x.jpg" />
+    <None Include="wwwroot\i\form_4_bg.jpg" />
+    <None Include="wwwroot\i\form_6_bg%402x.jpg" />
+    <None Include="wwwroot\i\form_6_bg.jpg" />
+    <None Include="wwwroot\i\form_7_bg%402x.jpg" />
+    <None Include="wwwroot\i\form_7_bg.jpg" />
+    <None Include="wwwroot\i\header_13_bg%402x.jpg" />
+    <None Include="wwwroot\i\header_13_bg.jpg" />
+    <None Include="wwwroot\i\header_16_bg%402x.jpg" />
+    <None Include="wwwroot\i\header_16_bg.jpg" />
+    <None Include="wwwroot\i\header_16_img%402x.png" />
+    <None Include="wwwroot\i\header_16_img.png" />
+    <None Include="wwwroot\i\index.php" />
+    <None Include="wwwroot\i\pricing_table_4_bg%402x.jpg" />
+    <None Include="wwwroot\i\pricing_table_4_bg.jpg" />
+    <None Include="wwwroot\i\showcase_10_img%402x.jpg" />
+    <None Include="wwwroot\i\showcase_10_img.jpg" />
+    <None Include="wwwroot\i\slick-arrow-left-dark.svg" />
+    <None Include="wwwroot\i\slick-arrow-left.svg" />
+    <None Include="wwwroot\i\slick-arrow-right-dark.svg" />
+    <None Include="wwwroot\i\slick-arrow-right.svg" />
+    <None Include="wwwroot\i\team_2_bg%402x.jpg" />
+    <None Include="wwwroot\i\team_2_bg.jpg" />
+    <None Include="wwwroot\js\jquery.maskedinput.min.js" />
+    <None Include="wwwroot\js\script.js" />
+    <None Include="wwwroot\scss\framework.scss" />
+    <None Include="wwwroot\scss\layout.scss" />
+    <None Include="wwwroot\scss\style.scss" />
+    <None Include="wwwroot\scss\variables.scss" />
   </ItemGroup>
 
 </Project>

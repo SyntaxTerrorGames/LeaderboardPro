@@ -9,8 +9,9 @@ namespace LeaderboardPro.Data
         public string AvatarFilename { get; set; }
         public long AchievementScoreTotal { get; set; }
 
-        public List<Score> Scores { get; set; }
-        public List<Game> Games { get; set; }
-        public List<Achievement> Achievements { get; set; }
+        public ICollection<Score> Scores { get; set; }
+        public ICollection<Game> Games { get; set; }
+        public ICollection<Achievement> Achievements { get; set; }
+        public ICollection<TeamPlayer> TeamPlayers { get; set; }
     }
 }

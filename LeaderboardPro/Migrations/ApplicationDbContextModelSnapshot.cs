@@ -102,9 +102,6 @@ namespace LeaderboardPro.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<long>("AddressId")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -151,8 +148,6 @@ namespace LeaderboardPro.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AddressId");
-
                     b.HasIndex("NormalizedEmail")
                         .HasName("EmailIndex");
 
@@ -195,6 +190,48 @@ namespace LeaderboardPro.Migrations
                     b.ToTable("Developers");
                 });
 
+            modelBuilder.Entity("LeaderboardPro.Data.Friend", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("AcceptedPlayerId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("DateAccepted")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Friends");
+                });
+
+            modelBuilder.Entity("LeaderboardPro.Data.FriendRequest", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateExpired")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateRequested")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("ReceivingPlayerId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("RequestingPlayerId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FriendRequests");
+                });
+
             modelBuilder.Entity("LeaderboardPro.Data.Game", b =>
                 {
                     b.Property<string>("Id")
@@ -216,6 +253,34 @@ namespace LeaderboardPro.Migrations
                     b.HasIndex("PlayerId");
 
                     b.ToTable("Games");
+                });
+
+            modelBuilder.Entity("LeaderboardPro.Data.GameBan", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateOfBan")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("GameId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<long>("PlayerId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("ReasonForBan")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GameId");
+
+                    b.HasIndex("PlayerId");
+
+                    b.ToTable("GameBans");
                 });
 
             modelBuilder.Entity("LeaderboardPro.Data.GameKey", b =>
@@ -258,6 +323,33 @@ namespace LeaderboardPro.Migrations
                     b.HasIndex("ModeId");
 
                     b.ToTable("GameModes");
+                });
+
+            modelBuilder.Entity("LeaderboardPro.Data.GameSuspension", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateOfReinstatement")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DateOfSuspension")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("GameId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("PlayerId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("ReasonForSuspension")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GameSuspensions");
                 });
 
             modelBuilder.Entity("LeaderboardPro.Data.Mode", b =>
@@ -311,6 +403,26 @@ namespace LeaderboardPro.Migrations
                     b.ToTable("Players");
                 });
 
+            modelBuilder.Entity("LeaderboardPro.Data.PlayerBlock", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("PlayerId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("PlayerToBlockId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlayerId");
+
+                    b.ToTable("PlayerBlocks");
+                });
+
             modelBuilder.Entity("LeaderboardPro.Data.Score", b =>
                 {
                     b.Property<long>("Id")
@@ -342,6 +454,47 @@ namespace LeaderboardPro.Migrations
                     b.HasIndex("PlayerId");
 
                     b.ToTable("Scores");
+                });
+
+            modelBuilder.Entity("LeaderboardPro.Data.Team", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TeamLogoFilename")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TeamName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Teams");
+                });
+
+            modelBuilder.Entity("LeaderboardPro.Data.TeamPlayer", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("PlayerId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("TeamId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlayerId");
+
+                    b.HasIndex("TeamId");
+
+                    b.ToTable("TeamPlayers");
                 });
 
             modelBuilder.Entity("LeaderboardPro.Data.Time", b =>
@@ -530,15 +683,6 @@ namespace LeaderboardPro.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("LeaderboardPro.Data.ApplicationUser", b =>
-                {
-                    b.HasOne("LeaderboardPro.Data.Address", "Address")
-                        .WithMany()
-                        .HasForeignKey("AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("LeaderboardPro.Data.Game", b =>
                 {
                     b.HasOne("LeaderboardPro.Data.Developer", "Developer")
@@ -548,6 +692,19 @@ namespace LeaderboardPro.Migrations
                     b.HasOne("LeaderboardPro.Data.Player", null)
                         .WithMany("Games")
                         .HasForeignKey("PlayerId");
+                });
+
+            modelBuilder.Entity("LeaderboardPro.Data.GameBan", b =>
+                {
+                    b.HasOne("LeaderboardPro.Data.Game", "Game")
+                        .WithMany()
+                        .HasForeignKey("GameId");
+
+                    b.HasOne("LeaderboardPro.Data.Player", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("LeaderboardPro.Data.GameKey", b =>
@@ -576,6 +733,15 @@ namespace LeaderboardPro.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("LeaderboardPro.Data.PlayerBlock", b =>
+                {
+                    b.HasOne("LeaderboardPro.Data.Player", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("LeaderboardPro.Data.Score", b =>
                 {
                     b.HasOne("LeaderboardPro.Data.Game", "Game")
@@ -591,6 +757,19 @@ namespace LeaderboardPro.Migrations
                         .HasForeignKey("PlayerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("LeaderboardPro.Data.TeamPlayer", b =>
+                {
+                    b.HasOne("LeaderboardPro.Data.Player", "Player")
+                        .WithMany("TeamPlayers")
+                        .HasForeignKey("PlayerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LeaderboardPro.Data.Team", "Team")
+                        .WithMany("TeamPlayers")
+                        .HasForeignKey("TeamId");
                 });
 
             modelBuilder.Entity("LeaderboardPro.Data.Time", b =>
